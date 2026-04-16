@@ -1,65 +1,366 @@
-import Image from "next/image";
+const benefits = [
+  {
+    title: "Managed setup",
+    description:
+      "We install, configure, and launch your business AI assistant so you do not have to touch the infrastructure.",
+  },
+  {
+    title: "Hosted and maintained",
+    description:
+      "We keep the system online, monitored, and working so your team can focus on using it.",
+  },
+  {
+    title: "Direct access for your team",
+    description:
+      "Your business gets a ready-to-use assistant for everyday work, without the technical overhead.",
+  },
+];
+
+const useCases = [
+  "Draft emails and replies faster",
+  "Answer internal questions from shared business knowledge",
+  "Support planning, research, and repetitive admin work",
+  "Help organize ideas, notes, and business context",
+  "Give staff a reliable assistant for day-to-day tasks",
+  "Reduce friction when adopting AI in your business",
+];
+
+const process = [
+  {
+    step: "01",
+    title: "Tell us about your business",
+    description:
+      "Share a little about your company and how you think an AI assistant could help.",
+  },
+  {
+    step: "02",
+    title: "We set everything up",
+    description:
+      "We handle installation, hosting, security, and the technical work behind the scenes.",
+  },
+  {
+    step: "03",
+    title: "You start using it",
+    description:
+      "Your team gets direct access to a managed AI assistant without the usual setup burden.",
+  },
+];
+
+const faqs = [
+  {
+    question: "What kind of businesses is this for?",
+    answer:
+      "HarborDesk is designed for small businesses that want AI capability without managing the technical setup themselves.",
+  },
+  {
+    question: "Do I need to be technical to use this?",
+    answer:
+      "No. The whole point is to remove the setup, hosting, and maintenance burden from your side.",
+  },
+  {
+    question: "What can the assistant help with?",
+    answer:
+      "Common uses include drafting emails, answering internal questions, supporting research, and helping with repetitive admin tasks.",
+  },
+  {
+    question: "Do you host and maintain it for us?",
+    answer:
+      "Yes. We handle hosting, maintenance, and keeping things working so you can focus on using the assistant.",
+  },
+  {
+    question: "Is this a custom build service?",
+    answer:
+      "This version of the service is focused on managed access to a business AI assistant, rather than a fully custom done-for-you workflow build.",
+  },
+  {
+    question: "What happens after we contact you?",
+    answer:
+      "We follow up by email with a few questions about your business, what you need, and whether the service looks like a good fit.",
+  },
+];
 
 export default function Home() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
+    <main className="bg-[var(--page)] text-[var(--ink)]">
+      <section className="relative overflow-hidden border-b border-black/5">
+        <div className="absolute inset-x-0 top-0 h-[32rem] bg-[radial-gradient(circle_at_top,_rgba(79,123,255,0.16),_transparent_58%)]" />
+        <div className="mx-auto flex min-h-screen w-full max-w-6xl flex-col px-6 pb-16 pt-6 sm:px-8 lg:px-10">
+          <header className="flex items-center justify-between py-4">
+            <a href="#top" className="inline-flex items-center gap-3 text-sm font-semibold tracking-[0.18em] text-[var(--ink)] uppercase">
+              <span className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-[var(--line)] bg-white text-[0.95rem] shadow-sm">
+                H
+              </span>
+              HarborDesk
+            </a>
             <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
+              href="#contact"
+              className="inline-flex h-11 items-center justify-center rounded-full border border-[var(--line)] bg-white px-5 text-sm font-medium text-[var(--ink)] shadow-sm transition hover:-translate-y-0.5 hover:shadow-md"
             >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
+              Contact Us
+            </a>
+          </header>
+
+          <div
+            id="top"
+            className="relative grid flex-1 items-center gap-14 py-16 lg:grid-cols-[1.15fr_0.85fr] lg:py-24"
+          >
+            <div className="max-w-3xl">
+              <div className="mb-6 inline-flex rounded-full border border-[var(--line)] bg-white/80 px-4 py-2 text-sm font-medium text-[var(--muted)] shadow-sm backdrop-blur">
+                Managed AI assistant access for small businesses
+              </div>
+              <h1 className="max-w-4xl text-5xl font-semibold tracking-tight text-[var(--ink)] sm:text-6xl lg:text-7xl">
+                Your business AI assistant, set up and managed for you.
+              </h1>
+              <p className="mt-6 max-w-2xl text-lg leading-8 text-[var(--muted)] sm:text-xl">
+                HarborDesk sets up, hosts, secures, and maintains your AI assistant so your team can start using it without handling the technical side.
+              </p>
+              <div className="mt-10 flex flex-col gap-4 sm:flex-row">
+                <a
+                  href="#contact"
+                  className="inline-flex h-14 items-center justify-center rounded-full bg-[var(--accent)] px-7 text-base font-semibold text-white shadow-lg shadow-[rgba(79,123,255,0.2)] transition hover:-translate-y-0.5 hover:bg-[var(--accent-strong)]"
+                >
+                  Contact Us
+                </a>
+                <a
+                  href="#how-it-works"
+                  className="inline-flex h-14 items-center justify-center rounded-full border border-[var(--line)] bg-white px-7 text-base font-medium text-[var(--ink)] transition hover:bg-black/[0.02]"
+                >
+                  See how it works
+                </a>
+              </div>
+              <p className="mt-4 text-sm text-[var(--muted)]">
+                Simple contact first. We follow up by email with a few questions about your business and how you would use it.
+              </p>
+            </div>
+
+            <div className="relative">
+              <div className="rounded-[2rem] border border-[var(--line)] bg-white p-6 shadow-[0_24px_80px_rgba(16,24,40,0.08)]">
+                <div className="flex items-center justify-between border-b border-black/6 pb-4">
+                  <div>
+                    <p className="text-sm font-semibold text-[var(--ink)]">Managed access</p>
+                    <p className="text-sm text-[var(--muted)]">Hosted, maintained, ready to use</p>
+                  </div>
+                  <span className="rounded-full bg-[rgba(79,123,255,0.12)] px-3 py-1 text-xs font-semibold text-[var(--accent)]">
+                    Small business
+                  </span>
+                </div>
+                <div className="mt-6 space-y-4">
+                  {[
+                    "No infrastructure work on your side",
+                    "Direct access to your AI assistant",
+                    "Security, hosting, and maintenance handled",
+                    "Useful for daily business tasks from day one",
+                  ].map((item) => (
+                    <div
+                      key={item}
+                      className="flex items-start gap-3 rounded-2xl border border-black/6 bg-[var(--surface)] px-4 py-4"
+                    >
+                      <span className="mt-1 inline-block h-2.5 w-2.5 rounded-full bg-[var(--accent)]" />
+                      <p className="text-sm leading-6 text-[var(--ink)]">{item}</p>
+                    </div>
+                  ))}
+                </div>
+                <div className="mt-6 rounded-2xl bg-[var(--ink)] px-5 py-5 text-white">
+                  <p className="text-sm font-medium text-white/70">Best for teams who want</p>
+                  <p className="mt-2 text-lg font-semibold">
+                    AI capability without managing another system themselves.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="mx-auto w-full max-w-6xl px-6 py-20 sm:px-8 lg:px-10">
+        <div className="grid gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
+          <div>
+            <p className="section-label">What this is</p>
+            <h2 className="section-title mt-4">
+              A managed business AI assistant, without the setup burden.
+            </h2>
+            <p className="section-copy mt-5">
+              HarborDesk gives your business direct access to a hosted AI assistant. We handle the setup, hosting, maintenance, and security so you can focus on using it.
+            </p>
+          </div>
+          <div className="grid gap-5 md:grid-cols-3">
+            {benefits.map((benefit) => (
+              <article
+                key={benefit.title}
+                className="rounded-[1.75rem] border border-[var(--line)] bg-white p-6 shadow-sm"
+              >
+                <h3 className="text-lg font-semibold text-[var(--ink)]">{benefit.title}</h3>
+                <p className="mt-3 text-sm leading-7 text-[var(--muted)]">{benefit.description}</p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="border-y border-black/5 bg-white">
+        <div className="mx-auto w-full max-w-6xl px-6 py-20 sm:px-8 lg:px-10">
+          <div className="max-w-2xl">
+            <p className="section-label">Example use cases</p>
+            <h2 className="section-title mt-4">Useful from day one across common business tasks.</h2>
+            <p className="section-copy mt-5">
+              The assistant is flexible by design. Businesses can use it in different ways depending on how they work.
+            </p>
+          </div>
+          <div className="mt-10 grid gap-4 md:grid-cols-2 xl:grid-cols-3">
+            {useCases.map((item) => (
+              <div
+                key={item}
+                className="rounded-[1.5rem] border border-black/6 bg-[var(--surface)] px-5 py-5 text-sm font-medium text-[var(--ink)] shadow-sm"
+              >
+                {item}
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="mx-auto w-full max-w-6xl px-6 py-20 sm:px-8 lg:px-10">
+        <div className="grid gap-12 lg:grid-cols-[1fr_1fr] lg:items-center">
+          <div>
+            <p className="section-label">Why businesses choose this</p>
+            <h2 className="section-title mt-4">
+              A simpler way to bring AI into the business.
+            </h2>
+            <p className="section-copy mt-5">
+              Many teams want AI access, but not the work of installing, hosting, securing, and maintaining it. HarborDesk is built for that exact gap.
+            </p>
+          </div>
+          <div className="space-y-4">
+            {[
+              "No need to manage infrastructure, servers, or updates",
+              "Direct access for your business instead of another abstract AI concept",
+              "A professional setup designed to reduce technical friction",
+              "A clean starting point for businesses exploring practical AI use",
+            ].map((item) => (
+              <div
+                key={item}
+                className="rounded-[1.5rem] border border-[var(--line)] bg-white px-5 py-4 text-[0.98rem] leading-7 text-[var(--ink)] shadow-sm"
+              >
+                {item}
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section id="how-it-works" className="border-y border-black/5 bg-[var(--surface)]">
+        <div className="mx-auto w-full max-w-6xl px-6 py-20 sm:px-8 lg:px-10">
+          <div className="max-w-2xl">
+            <p className="section-label">How it works</p>
+            <h2 className="section-title mt-4">A low-friction path from interest to access.</h2>
+            <p className="section-copy mt-5">
+              The goal is to make getting started simple. Contact us first, then we follow up with a few questions and handle the technical side from there.
+            </p>
+          </div>
+          <div className="mt-10 grid gap-5 md:grid-cols-3">
+            {process.map((item) => (
+              <article
+                key={item.step}
+                className="rounded-[1.75rem] border border-[var(--line)] bg-white p-6 shadow-sm"
+              >
+                <p className="text-sm font-semibold tracking-[0.2em] text-[var(--accent)] uppercase">{item.step}</p>
+                <h3 className="mt-4 text-xl font-semibold text-[var(--ink)]">{item.title}</h3>
+                <p className="mt-3 text-sm leading-7 text-[var(--muted)]">{item.description}</p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section id="contact" className="mx-auto w-full max-w-6xl px-6 py-20 sm:px-8 lg:px-10">
+        <div className="grid gap-10 lg:grid-cols-[0.82fr_1.18fr] lg:items-start">
+          <div>
+            <p className="section-label">Contact</p>
+            <h2 className="section-title mt-4">Interested in managed AI assistant access?</h2>
+            <p className="section-copy mt-5">
+              Send your details and we will follow up by email with a few questions about your business, how you would use the assistant, and whether it looks like a fit.
+            </p>
+            <div className="mt-8 rounded-[1.5rem] border border-[var(--line)] bg-white p-6 shadow-sm">
+              <p className="text-sm font-semibold text-[var(--ink)]">What we ask for here</p>
+              <ul className="mt-4 space-y-3 text-sm leading-7 text-[var(--muted)]">
+                <li>Name and email</li>
+                <li>Business name</li>
+                <li>Optional note about your use case</li>
+              </ul>
+            </div>
+          </div>
+
+          <form className="rounded-[2rem] border border-[var(--line)] bg-white p-6 shadow-[0_20px_70px_rgba(16,24,40,0.08)] sm:p-8">
+            <div className="grid gap-5 sm:grid-cols-2">
+              <label className="flex flex-col gap-2 text-sm font-medium text-[var(--ink)]">
+                Name
+                <input
+                  type="text"
+                  name="name"
+                  placeholder="Your name"
+                  className="h-12 rounded-2xl border border-[var(--line)] bg-[var(--surface)] px-4 text-sm text-[var(--ink)] outline-none transition focus:border-[var(--accent)]"
+                />
+              </label>
+              <label className="flex flex-col gap-2 text-sm font-medium text-[var(--ink)]">
+                Business name
+                <input
+                  type="text"
+                  name="business"
+                  placeholder="Your business"
+                  className="h-12 rounded-2xl border border-[var(--line)] bg-[var(--surface)] px-4 text-sm text-[var(--ink)] outline-none transition focus:border-[var(--accent)]"
+                />
+              </label>
+            </div>
+            <label className="mt-5 flex flex-col gap-2 text-sm font-medium text-[var(--ink)]">
+              Email
+              <input
+                type="email"
+                name="email"
+                placeholder="you@company.com"
+                className="h-12 rounded-2xl border border-[var(--line)] bg-[var(--surface)] px-4 text-sm text-[var(--ink)] outline-none transition focus:border-[var(--accent)]"
+              />
+            </label>
+            <label className="mt-5 flex flex-col gap-2 text-sm font-medium text-[var(--ink)]">
+              Optional message
+              <textarea
+                name="message"
+                rows={5}
+                placeholder="Tell us a little about your business or how you might use an AI assistant."
+                className="rounded-2xl border border-[var(--line)] bg-[var(--surface)] px-4 py-3 text-sm text-[var(--ink)] outline-none transition focus:border-[var(--accent)]"
+              />
+            </label>
+            <button
+              type="submit"
+              className="mt-6 inline-flex h-14 w-full items-center justify-center rounded-full bg-[var(--accent)] px-7 text-base font-semibold text-white shadow-lg shadow-[rgba(79,123,255,0.2)] transition hover:bg-[var(--accent-strong)]"
             >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+              Contact Us
+            </button>
+            <p className="mt-4 text-sm leading-6 text-[var(--muted)]">
+              We keep the initial contact simple. After you reach out, we follow up by email with a few questions and next steps.
+            </p>
+          </form>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+      </section>
+
+      <section className="border-t border-black/5 bg-white">
+        <div className="mx-auto w-full max-w-6xl px-6 py-20 sm:px-8 lg:px-10">
+          <div className="max-w-2xl">
+            <p className="section-label">FAQ</p>
+            <h2 className="section-title mt-4">Common questions.</h2>
+          </div>
+          <div className="mt-10 grid gap-4 lg:grid-cols-2">
+            {faqs.map((faq) => (
+              <article
+                key={faq.question}
+                className="rounded-[1.5rem] border border-[var(--line)] bg-[var(--surface)] p-6"
+              >
+                <h3 className="text-base font-semibold text-[var(--ink)]">{faq.question}</h3>
+                <p className="mt-3 text-sm leading-7 text-[var(--muted)]">{faq.answer}</p>
+              </article>
+            ))}
+          </div>
         </div>
-      </main>
-    </div>
+      </section>
+    </main>
   );
 }
