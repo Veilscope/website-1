@@ -1,5 +1,3 @@
-import Link from "next/link";
-
 const benefits = [
   {
     title: "Managed setup",
@@ -124,17 +122,31 @@ export default function Home() {
         <div className="mx-auto flex min-h-screen w-full max-w-6xl flex-col px-6 pb-16 pt-6 sm:px-8 lg:px-10">
           <header className="grid grid-cols-[1fr_auto] items-center gap-4 py-4">
             <a href="#top" className="inline-flex min-w-0 items-center gap-3 text-sm font-semibold tracking-[0.18em] text-[var(--ink)] uppercase">
-              <span className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-[var(--line)] bg-white text-[0.95rem] shadow-sm">
-                H
+              <span className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-[var(--line)] bg-white shadow-sm">
+                <svg
+                  aria-hidden="true"
+                  viewBox="0 0 40 40"
+                  className="h-6 w-6 text-[var(--ink)]"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M10 9V31M30 9V31M10 20H30M20 9V31"
+                    stroke="currentColor"
+                    strokeWidth="2.6"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                </svg>
               </span>
               <span className="truncate">HarborDesk</span>
             </a>
-            <Link
-              href="/#contact"
+            <a
+              href="#contact"
               className="inline-flex h-11 items-center justify-center self-start rounded-full border border-[var(--line)] bg-white px-5 text-sm font-medium text-[var(--ink)] shadow-sm transition hover:-translate-y-0.5 hover:shadow-md"
             >
               Contact Us
-            </Link>
+            </a>
           </header>
 
           <div
