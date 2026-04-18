@@ -52,7 +52,7 @@ const faqs = [
   {
     question: "What kind of businesses is this for?",
     answer:
-      "HarborDesk is designed for small businesses that want AI capability without managing the technical setup themselves.",
+      "QuietDesk is designed for small businesses that want AI capability without managing the technical setup themselves.",
   },
   {
     question: "What can I use the assistant for?",
@@ -126,7 +126,7 @@ export default function Home() {
             <a href="#top" className="inline-flex min-w-0 items-center gap-3 text-sm font-semibold tracking-[0.18em] text-[var(--ink)] uppercase">
               <span className="inline-flex h-10 w-10 shrink-0 items-center justify-center overflow-hidden rounded-full border border-[var(--line)] bg-white shadow-sm" aria-hidden="true">
                 <Image
-                  src="/harbordesk-logo-40x40.svg"
+                  src="/quietdesk-logo-40x40.svg"
                   alt=""
                   width={40}
                   height={40}
@@ -134,7 +134,7 @@ export default function Home() {
                   priority
                 />
               </span>
-              <span className="truncate">HarborDesk</span>
+              <span className="truncate">QuietDesk</span>
             </a>
             <a
               href="#contact"
@@ -156,7 +156,7 @@ export default function Home() {
                 Your business AI assistant, set up and managed for you.
               </h1>
               <p className="mt-6 max-w-2xl text-lg leading-8 text-[var(--muted)] sm:text-xl">
-                HarborDesk sets up, hosts, secures, and maintains your AI assistant so your team can start using it without handling the technical side.
+                QuietDesk sets up, hosts, secures, and maintains your AI assistant so your team can start using it without handling the technical side.
               </p>
               <div className="mt-10 flex flex-col gap-4 sm:flex-row">
                 <a
@@ -224,7 +224,7 @@ export default function Home() {
               A managed business AI assistant, without the setup burden.
             </h2>
             <p className="section-copy mt-5">
-              HarborDesk gives your business direct access to a hosted AI assistant. We handle the setup, hosting, maintenance, and security so you can focus on using it.
+              QuietDesk gives your business direct access to a hosted AI assistant. We handle the setup, hosting, maintenance, and security so you can focus on using it.
             </p>
           </div>
           <div className="grid gap-5 md:grid-cols-3">
@@ -271,7 +271,7 @@ export default function Home() {
               A simpler way to bring AI into the business.
             </h2>
             <p className="section-copy mt-5">
-              Many teams want AI access, but not the work of installing, hosting, securing, and maintaining it. HarborDesk is built for that exact gap.
+              Many teams want AI access, but not the work of installing, hosting, securing, and maintaining it. QuietDesk is built for that exact gap.
             </p>
           </div>
           <div className="space-y-4">
