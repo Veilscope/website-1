@@ -118,27 +118,11 @@ export default function Home() {
   return (
     <main className="bg-[var(--page)] text-[var(--ink)]">
       <section className="relative overflow-hidden border-b border-black/5">
-        <div className="absolute inset-x-0 top-0 h-[32rem] bg-[radial-gradient(circle_at_top,_rgba(79,123,255,0.16),_transparent_58%)]" />
-        <div className="mx-auto flex min-h-screen w-full max-w-6xl flex-col px-6 pb-16 pt-6 sm:px-8 lg:px-10">
-          <header className="grid grid-cols-[1fr_auto] items-center gap-4 py-4">
+        <div className="pointer-events-none absolute inset-x-0 top-0 h-[32rem] bg-[radial-gradient(circle_at_top,_rgba(79,123,255,0.16),_transparent_58%)]" />
+        <div className="relative z-10 mx-auto flex min-h-screen w-full max-w-6xl flex-col px-6 pb-16 pt-6 sm:px-8 lg:px-10">
+          <header className="relative z-20 grid grid-cols-[1fr_auto] items-center gap-4 py-4">
             <a href="#top" className="inline-flex min-w-0 items-center gap-3 text-sm font-semibold tracking-[0.18em] text-[var(--ink)] uppercase">
-              <span className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-[var(--line)] bg-white shadow-sm">
-                <svg
-                  aria-hidden="true"
-                  viewBox="0 0 40 40"
-                  className="h-6 w-6 text-[var(--ink)]"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M10 9V31M30 9V31M10 20H30M20 9V31"
-                    stroke="currentColor"
-                    strokeWidth="2.6"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                </svg>
-              </span>
+              <span className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-[var(--line)] bg-white shadow-sm" aria-hidden="true" />
               <span className="truncate">HarborDesk</span>
             </a>
             <a
