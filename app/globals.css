@@ -37,10 +37,40 @@ a {
   text-decoration: none;
 }
 
+button,
+a,
+input,
+textarea {
+  -webkit-tap-highlight-color: transparent;
+}
+
 input,
 textarea,
 button {
   font: inherit;
+}
+
+button,
+input,
+textarea {
+  width: 100%;
+}
+
+input,
+textarea {
+  appearance: none;
+}
+
+textarea {
+  resize: vertical;
+  min-height: 9rem;
+}
+
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+  outline: 0;
 }
 
 input::placeholder,
@@ -50,6 +80,21 @@ textarea::placeholder {
 
 ::selection {
   background: rgba(79, 123, 255, 0.2);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }
 
 .section-label {
