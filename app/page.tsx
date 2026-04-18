@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 const benefits = [
   {
     title: "Managed setup",
@@ -122,7 +124,16 @@ export default function Home() {
         <div className="relative z-10 mx-auto flex min-h-screen w-full max-w-6xl flex-col px-6 pb-16 pt-6 sm:px-8 lg:px-10">
           <header className="relative z-20 grid grid-cols-[1fr_auto] items-center gap-4 py-4">
             <a href="#top" className="inline-flex min-w-0 items-center gap-3 text-sm font-semibold tracking-[0.18em] text-[var(--ink)] uppercase">
-              <span className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-[var(--line)] bg-white shadow-sm" aria-hidden="true" />
+              <span className="inline-flex h-10 w-10 shrink-0 items-center justify-center overflow-hidden rounded-full border border-[var(--line)] bg-white shadow-sm" aria-hidden="true">
+                <Image
+                  src="/harbordesk logo 40x40.svg"
+                  alt=""
+                  width={40}
+                  height={40}
+                  className="h-full w-full object-cover"
+                  priority
+                />
+              </span>
               <span className="truncate">HarborDesk</span>
             </a>
             <a
