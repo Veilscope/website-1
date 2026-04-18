@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 const benefits = [
   {
     title: "Managed setup",
@@ -120,19 +122,19 @@ export default function Home() {
       <section className="relative overflow-hidden border-b border-black/5">
         <div className="absolute inset-x-0 top-0 h-[32rem] bg-[radial-gradient(circle_at_top,_rgba(79,123,255,0.16),_transparent_58%)]" />
         <div className="mx-auto flex min-h-screen w-full max-w-6xl flex-col px-6 pb-16 pt-6 sm:px-8 lg:px-10">
-          <header className="flex flex-col gap-4 py-4 sm:flex-row sm:items-center sm:justify-between">
-            <a href="#top" className="inline-flex items-center gap-3 text-sm font-semibold tracking-[0.18em] text-[var(--ink)] uppercase">
-              <span className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-[var(--line)] bg-white text-[0.95rem] shadow-sm">
+          <header className="grid grid-cols-[1fr_auto] items-center gap-4 py-4">
+            <a href="#top" className="inline-flex min-w-0 items-center gap-3 text-sm font-semibold tracking-[0.18em] text-[var(--ink)] uppercase">
+              <span className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-[var(--line)] bg-white text-[0.95rem] shadow-sm">
                 H
               </span>
-              HarborDesk
+              <span className="truncate">HarborDesk</span>
             </a>
-            <a
-              href="#contact"
-              className="inline-flex h-11 w-full items-center justify-center rounded-full border border-[var(--line)] bg-white px-5 text-sm font-medium text-[var(--ink)] shadow-sm transition hover:-translate-y-0.5 hover:shadow-md sm:w-auto"
+            <Link
+              href="/#contact"
+              className="inline-flex h-11 items-center justify-center self-start rounded-full border border-[var(--line)] bg-white px-5 text-sm font-medium text-[var(--ink)] shadow-sm transition hover:-translate-y-0.5 hover:shadow-md"
             >
               Contact Us
-            </a>
+            </Link>
           </header>
 
           <div
@@ -355,22 +357,12 @@ export default function Home() {
                 <li>Optional note about your use case</li>
               </ul>
             </div>
-            <div className="mt-5 rounded-[1.5rem] border border-[var(--line)] bg-[var(--surface)] p-6 shadow-sm">
-              <p className="text-sm font-semibold text-[var(--ink)]">Prepared for email integration</p>
-              <p className="mt-3 text-sm leading-7 text-[var(--muted)]">
-                The form is structured with standard field names and metadata so it can be wired into a Private Email based submission flow after the domain and mailbox are ready.
-              </p>
-            </div>
           </div>
 
           <form
             className="rounded-[2rem] border border-[var(--line)] bg-white p-6 shadow-[0_20px_70px_rgba(16,24,40,0.08)] sm:p-8"
             method="post"
             action="#"
-            data-email-provider="namecheap-privateemail"
-            data-email-status="not-configured"
-            data-form-intent="contact-interest"
-            data-analytics-form="contact-interest"
           >
             <div className="grid gap-5 sm:grid-cols-2">
               <ContactField
@@ -388,21 +380,14 @@ export default function Home() {
                 required
               />
             </div>
-            <div className="mt-5 grid gap-5 sm:grid-cols-2">
+            <div className="mt-5">
               <ContactField
                 label="Email"
                 name="email"
                 type="email"
-                placeholder="you@company.com"
+                placeholder="you@email.com"
                 autoComplete="email"
                 required
-              />
-              <ContactField
-                label="Phone (optional)"
-                name="phone"
-                type="tel"
-                placeholder="Optional"
-                autoComplete="tel"
               />
             </div>
             <label className="mt-5 flex flex-col gap-2 text-sm font-medium text-[var(--ink)]">
@@ -414,12 +399,6 @@ export default function Home() {
                 className="rounded-2xl border border-[var(--line)] bg-[var(--surface)] px-4 py-3 text-sm text-[var(--ink)] outline-none transition focus:border-[var(--accent)] focus:ring-4 focus:ring-[rgba(79,123,255,0.12)]"
               />
             </label>
-            <input type="hidden" name="source" value="website-1" />
-            <input type="hidden" name="service" value="managed-ai-assistant-access" />
-            <input type="hidden" name="emailProvider" value="namecheap-privateemail" />
-            <input type="hidden" name="emailRoutingStatus" value="pending-domain-and-mailbox" />
-            <input type="hidden" name="analyticsPage" value="harbordesk-landing" />
-            <input type="hidden" name="analyticsForm" value="contact-interest" />
             <button
               type="submit"
               className="mt-6 inline-flex h-14 w-full items-center justify-center rounded-full bg-[var(--accent)] px-7 text-base font-semibold text-white shadow-lg shadow-[rgba(79,123,255,0.2)] transition hover:bg-[var(--accent-strong)] focus:outline-none focus:ring-4 focus:ring-[rgba(79,123,255,0.18)]"
