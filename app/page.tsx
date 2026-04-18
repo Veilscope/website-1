@@ -126,7 +126,7 @@ export default function Home() {
             <a href="#top" className="inline-flex min-w-0 items-center gap-3 text-sm font-semibold tracking-[0.18em] text-[var(--ink)] uppercase">
               <span className="inline-flex h-10 w-10 shrink-0 items-center justify-center overflow-hidden rounded-full border border-[var(--line)] bg-white shadow-sm" aria-hidden="true">
                 <Image
-                  src="/harbordesk logo 40x40.svg"
+                  src="/harbordesk-logo-40x40.svg"
                   alt=""
                   width={40}
                   height={40}
