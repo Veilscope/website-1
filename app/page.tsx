@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 const benefits = [
   {
     title: "Managed setup",
@@ -50,51 +52,93 @@ const faqs = [
   {
     question: "What kind of businesses is this for?",
     answer:
-      "HarborDesk is designed for small businesses that want AI capability without managing the technical setup themselves.",
+      "NorthDesk is designed for small businesses that want AI capability without managing the technical setup themselves.",
   },
   {
-    question: "Do I need to be technical to use this?",
+    question: "What can I use the assistant for?",
     answer:
-      "No. The whole point is to remove the setup, hosting, and maintenance burden from your side.",
+      "Common uses include drafting emails, answering internal questions, supporting research, planning, and helping with repetitive admin tasks.",
   },
   {
-    question: "What can the assistant help with?",
+    question: "Do I need to set anything up myself?",
     answer:
-      "Common uses include drafting emails, answering internal questions, supporting research, and helping with repetitive admin tasks.",
+      "No. We handle setup, hosting, security, and maintenance so your team can focus on using the assistant.",
   },
   {
     question: "Do you host and maintain it for us?",
     answer:
-      "Yes. We handle hosting, maintenance, and keeping things working so you can focus on using the assistant.",
+      "Yes. We keep it hosted and maintained so you are not left managing infrastructure or upkeep yourself.",
   },
   {
-    question: "Is this a custom build service?",
+    question: "Is this meant for non-technical businesses too?",
     answer:
-      "This version of the service is focused on managed access to a business AI assistant, rather than a fully custom done-for-you workflow build.",
+      "Yes. The service is intended to make business AI accessible without requiring technical experience on your side.",
   },
   {
-    question: "What happens after we contact you?",
+    question: "What happens after I contact you?",
     answer:
-      "We follow up by email with a few questions about your business, what you need, and whether the service looks like a good fit.",
+      "We follow up by email with a few qualifying questions about your business, intended use cases, team context, and level of interest.",
   },
 ];
+
+type ContactFieldProps = {
+  label: string;
+  name: string;
+  type?: string;
+  placeholder: string;
+  autoComplete?: string;
+  required?: boolean;
+};
+
+function ContactField({
+  label,
+  name,
+  type = "text",
+  placeholder,
+  autoComplete,
+  required = false,
+}: ContactFieldProps) {
+  return (
+    <label className="flex flex-col gap-2 text-sm font-medium text-[var(--ink)]">
+      <span className="flex items-center gap-2">
+        {label}
+        {required ? <span className="text-[var(--accent)]">*</span> : null}
+      </span>
+      <input
+        type={type}
+        name={name}
+        autoComplete={autoComplete}
+        required={required}
+        placeholder={placeholder}
+        className="h-12 rounded-2xl border border-[var(--line)] bg-[var(--surface)] px-4 text-sm text-[var(--ink)] outline-none transition focus:border-[var(--accent)] focus:ring-4 focus:ring-[rgba(79,123,255,0.12)]"
+      />
+    </label>
+  );
+}
 
 export default function Home() {
   return (
     <main className="bg-[var(--page)] text-[var(--ink)]">
       <section className="relative overflow-hidden border-b border-black/5">
-        <div className="absolute inset-x-0 top-0 h-[32rem] bg-[radial-gradient(circle_at_top,_rgba(79,123,255,0.16),_transparent_58%)]" />
-        <div className="mx-auto flex min-h-screen w-full max-w-6xl flex-col px-6 pb-16 pt-6 sm:px-8 lg:px-10">
-          <header className="flex items-center justify-between py-4">
-            <a href="#top" className="inline-flex items-center gap-3 text-sm font-semibold tracking-[0.18em] text-[var(--ink)] uppercase">
-              <span className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-[var(--line)] bg-white text-[0.95rem] shadow-sm">
-                H
+        <div className="pointer-events-none absolute inset-x-0 top-0 h-[32rem] bg-[radial-gradient(circle_at_top,_rgba(79,123,255,0.16),_transparent_58%)]" />
+        <div className="relative z-10 mx-auto flex min-h-screen w-full max-w-6xl flex-col px-6 pb-16 pt-6 sm:px-8 lg:px-10">
+          <header className="relative z-20 grid grid-cols-[1fr_auto] items-center gap-4 py-4">
+            <a href="#top" className="inline-flex min-w-0 items-center gap-3 text-sm font-semibold tracking-[0.18em] text-[var(--ink)] uppercase">
+              <span className="inline-flex h-10 w-10 shrink-0 items-center justify-center overflow-hidden rounded-full border border-[var(--line)] bg-white shadow-sm" aria-hidden="true">
+                <Image
+                  src="/northdesk-logo-40x40.svg"
+                  alt=""
+                  width={40}
+                  height={40}
+                  className="h-full w-full object-cover"
+                  priority
+                />
               </span>
-              HarborDesk
+              <span className="truncate">NorthDesk</span>
             </a>
             <a
               href="#contact"
-              className="inline-flex h-11 items-center justify-center rounded-full border border-[var(--line)] bg-white px-5 text-sm font-medium text-[var(--ink)] shadow-sm transition hover:-translate-y-0.5 hover:shadow-md"
+              className="inline-flex h-11 items-center justify-center self-start rounded-full border border-[var(--line)] bg-white px-5 text-sm font-medium text-[var(--ink)] shadow-sm transition hover:-translate-y-0.5 hover:shadow-md"
             >
               Contact Us
             </a>
@@ -112,7 +156,7 @@ export default function Home() {
                 Your business AI assistant, set up and managed for you.
               </h1>
               <p className="mt-6 max-w-2xl text-lg leading-8 text-[var(--muted)] sm:text-xl">
-                HarborDesk sets up, hosts, secures, and maintains your AI assistant so your team can start using it without handling the technical side.
+                NorthDesk sets up, hosts, secures, and maintains your AI assistant so your team can start using it without handling the technical side.
               </p>
               <div className="mt-10 flex flex-col gap-4 sm:flex-row">
                 <a
@@ -180,7 +224,7 @@ export default function Home() {
               A managed business AI assistant, without the setup burden.
             </h2>
             <p className="section-copy mt-5">
-              HarborDesk gives your business direct access to a hosted AI assistant. We handle the setup, hosting, maintenance, and security so you can focus on using it.
+              NorthDesk gives your business direct access to a hosted AI assistant. We handle the setup, hosting, maintenance, and security so you can focus on using it.
             </p>
           </div>
           <div className="grid gap-5 md:grid-cols-3">
@@ -227,7 +271,7 @@ export default function Home() {
               A simpler way to bring AI into the business.
             </h2>
             <p className="section-copy mt-5">
-              Many teams want AI access, but not the work of installing, hosting, securing, and maintaining it. HarborDesk is built for that exact gap.
+              Many teams want AI access, but not the work of installing, hosting, securing, and maintaining it. NorthDesk is built for that exact gap.
             </p>
           </div>
           <div className="space-y-4">
@@ -272,6 +316,38 @@ export default function Home() {
         </div>
       </section>
 
+      <section className="border-t border-black/5 bg-white">
+        <div className="mx-auto w-full max-w-6xl px-6 py-20 sm:px-8 lg:px-10">
+          <div className="max-w-2xl">
+            <p className="section-label">FAQ</p>
+            <h2 className="section-title mt-4">Common questions.</h2>
+          </div>
+          <div className="mt-10 grid gap-4 lg:grid-cols-2">
+            {faqs.map((faq) => (
+              <article
+                key={faq.question}
+                className="rounded-[1.5rem] border border-[var(--line)] bg-[var(--surface)] p-6"
+              >
+                <h3 className="text-base font-semibold text-[var(--ink)]">{faq.question}</h3>
+                <p className="mt-3 text-sm leading-7 text-[var(--muted)]">{faq.answer}</p>
+              </article>
+            ))}
+          </div>
+          <div className="mt-10 rounded-[1.75rem] border border-[var(--line)] bg-[var(--page)] p-6 sm:p-8">
+            <p className="text-base font-semibold text-[var(--ink)]">Have a question that is not covered here?</p>
+            <p className="mt-3 max-w-2xl text-sm leading-7 text-[var(--muted)]">
+              Send us a note and we will reply by email. The first step stays simple, then we follow up with a few qualifying questions about your business and intended use.
+            </p>
+            <a
+              href="#contact"
+              className="mt-5 inline-flex h-12 items-center justify-center rounded-full border border-[var(--line)] bg-white px-6 text-sm font-medium text-[var(--ink)] shadow-sm transition hover:-translate-y-0.5 hover:shadow-md"
+            >
+              Go to contact form
+            </a>
+          </div>
+        </div>
+      </section>
+
       <section id="contact" className="mx-auto w-full max-w-6xl px-6 py-20 sm:px-8 lg:px-10">
         <div className="grid gap-10 lg:grid-cols-[0.82fr_1.18fr] lg:items-start">
           <div>
@@ -290,48 +366,49 @@ export default function Home() {
             </div>
           </div>
 
-          <form className="rounded-[2rem] border border-[var(--line)] bg-white p-6 shadow-[0_20px_70px_rgba(16,24,40,0.08)] sm:p-8">
+          <form
+            className="rounded-[2rem] border border-[var(--line)] bg-white p-6 shadow-[0_20px_70px_rgba(16,24,40,0.08)] sm:p-8"
+            method="post"
+            action="#"
+          >
             <div className="grid gap-5 sm:grid-cols-2">
-              <label className="flex flex-col gap-2 text-sm font-medium text-[var(--ink)]">
-                Name
-                <input
-                  type="text"
-                  name="name"
-                  placeholder="Your name"
-                  className="h-12 rounded-2xl border border-[var(--line)] bg-[var(--surface)] px-4 text-sm text-[var(--ink)] outline-none transition focus:border-[var(--accent)]"
-                />
-              </label>
-              <label className="flex flex-col gap-2 text-sm font-medium text-[var(--ink)]">
-                Business name
-                <input
-                  type="text"
-                  name="business"
-                  placeholder="Your business"
-                  className="h-12 rounded-2xl border border-[var(--line)] bg-[var(--surface)] px-4 text-sm text-[var(--ink)] outline-none transition focus:border-[var(--accent)]"
-                />
-              </label>
+              <ContactField
+                label="Name"
+                name="name"
+                placeholder="Your name"
+                autoComplete="name"
+                required
+              />
+              <ContactField
+                label="Business name"
+                name="businessName"
+                placeholder="Your business"
+                autoComplete="organization"
+                required
+              />
+            </div>
+            <div className="mt-5">
+              <ContactField
+                label="Email"
+                name="email"
+                type="email"
+                placeholder="you@email.com"
+                autoComplete="email"
+                required
+              />
             </div>
             <label className="mt-5 flex flex-col gap-2 text-sm font-medium text-[var(--ink)]">
-              Email
-              <input
-                type="email"
-                name="email"
-                placeholder="you@company.com"
-                className="h-12 rounded-2xl border border-[var(--line)] bg-[var(--surface)] px-4 text-sm text-[var(--ink)] outline-none transition focus:border-[var(--accent)]"
-              />
-            </label>
-            <label className="mt-5 flex flex-col gap-2 text-sm font-medium text-[var(--ink)]">
-              Optional message
+              <span>Optional message</span>
               <textarea
                 name="message"
                 rows={5}
                 placeholder="Tell us a little about your business or how you might use an AI assistant."
-                className="rounded-2xl border border-[var(--line)] bg-[var(--surface)] px-4 py-3 text-sm text-[var(--ink)] outline-none transition focus:border-[var(--accent)]"
+                className="rounded-2xl border border-[var(--line)] bg-[var(--surface)] px-4 py-3 text-sm text-[var(--ink)] outline-none transition focus:border-[var(--accent)] focus:ring-4 focus:ring-[rgba(79,123,255,0.12)]"
               />
             </label>
             <button
               type="submit"
-              className="mt-6 inline-flex h-14 w-full items-center justify-center rounded-full bg-[var(--accent)] px-7 text-base font-semibold text-white shadow-lg shadow-[rgba(79,123,255,0.2)] transition hover:bg-[var(--accent-strong)]"
+              className="mt-6 inline-flex h-14 w-full items-center justify-center rounded-full bg-[var(--accent)] px-7 text-base font-semibold text-white shadow-lg shadow-[rgba(79,123,255,0.2)] transition hover:bg-[var(--accent-strong)] focus:outline-none focus:ring-4 focus:ring-[rgba(79,123,255,0.18)]"
             >
               Contact Us
             </button>
@@ -339,26 +416,6 @@ export default function Home() {
               We keep the initial contact simple. After you reach out, we follow up by email with a few questions and next steps.
             </p>
           </form>
-        </div>
-      </section>
-
-      <section className="border-t border-black/5 bg-white">
-        <div className="mx-auto w-full max-w-6xl px-6 py-20 sm:px-8 lg:px-10">
-          <div className="max-w-2xl">
-            <p className="section-label">FAQ</p>
-            <h2 className="section-title mt-4">Common questions.</h2>
-          </div>
-          <div className="mt-10 grid gap-4 lg:grid-cols-2">
-            {faqs.map((faq) => (
-              <article
-                key={faq.question}
-                className="rounded-[1.5rem] border border-[var(--line)] bg-[var(--surface)] p-6"
-              >
-                <h3 className="text-base font-semibold text-[var(--ink)]">{faq.question}</h3>
-                <p className="mt-3 text-sm leading-7 text-[var(--muted)]">{faq.answer}</p>
-              </article>
-            ))}
-          </div>
         </div>
       </section>
     </main>

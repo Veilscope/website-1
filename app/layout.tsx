@@ -13,9 +13,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "HarborDesk | Managed AI Assistant Access for Small Businesses",
+  title: "NorthDesk | Managed AI Assistant Access for Small Businesses",
   description:
-    "HarborDesk sets up, hosts, secures, and maintains a business AI assistant so small businesses can use it without handling the technical side.",
+    "NorthDesk sets up, hosts, secures, and maintains a business AI assistant so small businesses can use it without handling the technical side.",
 };
 
 export default function RootLayout({
