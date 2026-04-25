@@ -1,4 +1,7 @@
+"use client";
+
 import Image from "next/image";
+import { FormEvent, useState } from "react";
 
 const benefits = [
   {
@@ -90,6 +93,11 @@ type ContactFieldProps = {
   required?: boolean;
 };
 
+type ContactFormState = {
+  status: "idle" | "submitting" | "success" | "error";
+  message: string;
+};
+
 function ContactField({
   label,
   name,
@@ -117,6 +125,67 @@ function ContactField({
 }
 
 export default function Home() {
+  const [formState, setFormState] = useState<ContactFormState>({
+    status: "idle",
+    message: "",
+  });
+
+  async function handleContactSubmit(event: FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+
+    const form = event.currentTarget;
+    const formData = new FormData(form);
+    const name = String(formData.get("name") ?? "").trim();
+    const businessName = String(formData.get("businessName") ?? "").trim();
+    const email = String(formData.get("email") ?? "").trim();
+    const message = String(formData.get("message") ?? "").trim();
+    const topic = businessName ? `Inquiry from ${businessName}` : "General inquiry";
+
+    setFormState({
+      status: "submitting",
+      message: "Sending your message...",
+    });
+
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          name,
+          email,
+          topic,
+          message:
+            message ||
+            `Business name: ${businessName}\n\nThe visitor requested follow-up without adding extra details.`,
+        }),
+      });
+
+      const result = (await response.json()) as { error?: string };
+
+      if (!response.ok) {
+        setFormState({
+          status: "error",
+          message: result.error || "We could not send your message. Please try again.",
+        });
+        return;
+      }
+
+      form.reset();
+      setFormState({
+        status: "success",
+        message: "Thanks. Your message was sent successfully.",
+      });
+    } catch (error) {
+      console.error("Contact form error:", error);
+      setFormState({
+        status: "error",
+        message: "We could not send your message. Please try again.",
+      });
+    }
+  }
+
   return (
     <main className="bg-[var(--page)] text-[var(--ink)]">
       <section className="relative overflow-hidden border-b border-black/5">
@@ -367,9 +436,10 @@ export default function Home() {
           </div>
 
           <form
+            id="contact-form"
             className="rounded-[2rem] border border-[var(--line)] bg-white p-6 shadow-[0_20px_70px_rgba(16,24,40,0.08)] sm:p-8"
             method="post"
-            action="#"
+            onSubmit={handleContactSubmit}
           >
             <div className="grid gap-5 sm:grid-cols-2">
               <ContactField
@@ -408,13 +478,24 @@ export default function Home() {
             </label>
             <button
               type="submit"
-              className="mt-6 inline-flex h-14 w-full items-center justify-center rounded-full bg-[var(--accent)] px-7 text-base font-semibold text-white shadow-lg shadow-[rgba(79,123,255,0.2)] transition hover:bg-[var(--accent-strong)] focus:outline-none focus:ring-4 focus:ring-[rgba(79,123,255,0.18)]"
+              disabled={formState.status === "submitting"}
+              className="mt-6 inline-flex h-14 w-full items-center justify-center rounded-full bg-[var(--accent)] px-7 text-base font-semibold text-white shadow-lg shadow-[rgba(79,123,255,0.2)] transition hover:bg-[var(--accent-strong)] focus:outline-none focus:ring-4 focus:ring-[rgba(79,123,255,0.18)] disabled:cursor-not-allowed disabled:opacity-70"
             >
-              Contact Us
+              {formState.status === "submitting" ? "Sending..." : "Contact Us"}
             </button>
             <p className="mt-4 text-sm leading-6 text-[var(--muted)]">
               We keep the initial contact simple. After you reach out, we follow up by email with a few questions and next steps.
             </p>
+            {formState.message ? (
+              <p
+                className={`mt-4 text-sm ${
+                  formState.status === "error" ? "text-red-600" : "text-[var(--muted)]"
+                }`}
+                role="status"
+              >
+                {formState.message}
+              </p>
+            ) : null}
           </form>
         </div>
       </section>
