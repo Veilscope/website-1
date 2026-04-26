@@ -487,14 +487,19 @@ export default function Home() {
               We keep the initial contact simple. After you reach out, we follow up by email with a few questions and next steps.
             </p>
             {formState.message ? (
-              <p
-                className={`mt-4 text-sm ${
-                  formState.status === "error" ? "text-red-600" : "text-[var(--muted)]"
+              <div
+                className={`mt-4 rounded-xl px-4 py-3 text-sm font-medium ${
+                  formState.status === "error"
+                    ? "bg-red-50 text-red-700 border border-red-100"
+                    : formState.status === "success"
+                    ? "bg-green-50 text-green-700 border border-green-100"
+                    : "bg-[var(--surface)] text-[var(--muted)] border border-[var(--line)]"
                 }`}
                 role="status"
+                aria-live="polite"
               >
                 {formState.message}
-              </p>
+              </div>
             ) : null}
           </form>
         </div>
